@@ -1,7 +1,7 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useRef, useEffect } from "react";
 import styles from "./Header.module.scss";
 import classnames from "classnames";
-import { Searchbar, Text } from '../../elements';
+import { Button, Searchbar, Text } from '../../elements';
 import logo from '../../../images/logo.svg';
 import hamburger from '../../../images/icons/hamburger.svg';
 import search from '../../../images/icons/search.svg';
@@ -11,6 +11,21 @@ import arrowLeft from '../../../images/icons/arrow-left.svg';
 export default function Header() {
   const [activeMenu, openMenu] = useState(false);
   const [activeSearch, openSearch] = useState(false);
+  const [buttonDisabled, toggleDisabledButton] = useState(false);
+  const inputEl = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    checkIfButtonIsDisabled();
+  });
+
+  const checkIfButtonIsDisabled = () => {
+    const searchbar = inputEl.current;
+    if(searchbar && inputEl){
+      searchbar.value.length !== 0
+      ? toggleDisabledButton(false)
+      : toggleDisabledButton(true)
+    }
+  } 
 
   return (
     <Fragment>
@@ -47,7 +62,8 @@ export default function Header() {
         </div>
         <div className={classnames(styles.content)}>
           <Text text={"Search River Island"} variant={"h1"} />
-          <Searchbar />
+          <Searchbar reference={inputEl} onchangeFunc={checkIfButtonIsDisabled} />
+          <Button disabled={buttonDisabled} text={"Search"} />
         </div>
       </div>
     </Fragment>
