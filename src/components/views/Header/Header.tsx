@@ -11,6 +11,7 @@ import arrowLeft from '../../../images/icons/arrow-left.svg';
 export default function Header() {
   const [activeMenu, openMenu] = useState(false);
   const [activeSearch, openSearch] = useState(false);
+  const [searchQuery, editQuery] = useState('');
   const [buttonDisabled, toggleDisabledButton] = useState(false);
   const inputEl = useRef<HTMLInputElement>(null);
 
@@ -19,13 +20,16 @@ export default function Header() {
   });
 
   const checkIfButtonIsDisabled = () => {
-    const searchbar = inputEl.current;
-    if(searchbar && inputEl){
-      searchbar.value.length !== 0
-      ? toggleDisabledButton(false)
-      : toggleDisabledButton(true)
+    const searchbar = inputEl;
+    if (searchbar && searchbar.current) {
+      if (searchbar.current.value.length !== 0) {
+        toggleDisabledButton(false);
+        editQuery(searchbar.current.value);
+      } else {
+        toggleDisabledButton(true)
+      }
     }
-  } 
+  }
 
   return (
     <Fragment>
@@ -63,7 +67,7 @@ export default function Header() {
         <div className={classnames(styles.content)}>
           <Text text={"Search River Island"} variant={"h1"} />
           <Searchbar reference={inputEl} onchangeFunc={checkIfButtonIsDisabled} />
-          <Button disabled={buttonDisabled} text={"Search"} />
+          <Button disabled={buttonDisabled} text={"Search"} link={"/search?keyword=" + searchQuery} />
         </div>
       </div>
     </Fragment>
