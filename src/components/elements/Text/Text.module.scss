@@ -14,3 +14,12 @@ h1, h2, h3, h4, h5, h6 {
   font-family: $font-family-bold;
   font-size: $font-size-header;
 }
+
+.link {
+  text-decoration: none;
+
+  p {
+    border-bottom: 2px solid black;
+    width: fit-content;
+  }
+}
