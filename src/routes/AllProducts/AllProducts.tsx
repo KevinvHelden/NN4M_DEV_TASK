@@ -6,10 +6,7 @@ import { Text } from '../../components/elements';
 export default function AllProducts() {
     return (
         <main className={classnames(styles.root)}>
-            <div className={classnames(styles.greeting)}>
-                <Text text={"Welcome to River Island"} variant={"h1"} />
-                <Text text={"Open the menu to get started."} />
-            </div>
+            <Text text={"All clothing"} variant={"h1"} />
         </main>
     )
 }
