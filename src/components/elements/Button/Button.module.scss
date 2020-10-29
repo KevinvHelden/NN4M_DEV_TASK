@@ -1,0 +1,25 @@
+@import "../../../styles/styling.scss";
+
+.root {
+  color: $font-colour-default;
+  font-size: $font-size-paragraph;
+  font-family: $font-family-bold;
+  padding: 0 $padding-mobile;
+  height: 50px;
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+  background-color: $yellow;
+  cursor: pointer;
+
+  &:enabled {
+    &:hover {
+      filter: brightness(105%);
+    }
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+}
