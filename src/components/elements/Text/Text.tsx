@@ -10,7 +10,7 @@ type Props = {
   clickFunc?: () => void,
 }
 
-function Text(props: Props) {
+export default function Text(props: Props) {
   const { text, variant = "p", strong = false, link, clickFunc } = props;
   let ComponentType = variant;
 
@@ -42,6 +42,3 @@ function Text(props: Props) {
     </Fragment>
   );
 }
-
-
-export default Text;
