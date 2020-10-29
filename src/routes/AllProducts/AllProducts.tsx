@@ -1,9 +1,9 @@
 import React from "react";
-import styles from "./AllClothing.module.scss";
+import styles from "./AllProducts.module.scss";
 import classnames from "classnames";
 import { Text } from '../../components/elements';
 
-export default function AllClothing() {
+export default function AllProducts() {
     return (
         <main className={classnames(styles.root)}>
             <div className={classnames(styles.greeting)}>

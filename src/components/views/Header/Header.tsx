@@ -49,7 +49,7 @@ export default function Header() {
           </div>
           <div className={classnames(styles.content)}>
             <Text text={"Categories"} variant={"h1"} />
-            <Text text={"All clothing"} link={'/all-clothing'} />
+            <Text text={"All clothing"} link={'/all-products'} />
           </div>
         </div>
       </div>
