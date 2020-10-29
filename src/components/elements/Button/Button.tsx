@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import styles from "./Button.module.scss";
 import classnames from "classnames";
 
@@ -10,11 +10,24 @@ type Props = {
 }
 
 export default function Button(props: Props) {
-  const { text, disabled } = props;
+  const { text, disabled, link } = props;
 
   return (
-    <button disabled={disabled} className={classnames(styles.root)}>
-      {text}
-    </button>
+    <Fragment>
+      {
+        link
+          ?
+          (<a href={link}>
+            <button disabled={disabled} className={classnames(styles.root)}>
+              {text}
+            </button >
+          </a>)
+          :
+          (<button disabled={disabled} className={classnames(styles.root)}>
+            {text}
+          </button>)
+      }
+    </Fragment>
+
   );
 }
