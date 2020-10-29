@@ -1,0 +1,16 @@
+@import "./colours.scss";
+@import './fonts.scss';
+
+// Colours
+$font-colour-default: $black;
+$font-colour-grey: $grey-lettering;
+$background-colour: $white;
+
+// Fonts
+$font-family-regular: 'proxima-nova-regular';
+$font-family-bold: 'proxima-nova-bold';
+$font-size-paragraph: 16px;
+$font-size-header: 24px;
+
+// Layout
+$padding-mobile: 15px;
