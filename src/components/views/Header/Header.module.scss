@@ -101,7 +101,7 @@
 .searchContainer {
   position: absolute;
   width: 100%;
-  height: auto;
+  height: calc(100vh - 50px);
   background-color: $white;
   display: none;
   flex-direction: column;
