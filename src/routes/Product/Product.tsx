@@ -5,11 +5,13 @@ import { Text } from '../../components/elements';
 
 export default function Product() {
     return (
-
         <main className={classnames(styles.root)}>
-            <div className={classnames(styles.greeting)}>
-                <Text text={"Welcome to River Island"} variant={"h1"} />
-                <Text text={"Open the menu to get started."} />
+            <div className={classnames(styles.bannerContainer)}>
+                <img src={""} alt={""} />
+            </div>
+            <div className={classnames(styles.description)}>
+                <Text text={"Product title"} variant={"h1"} />
+                <Text text={"Product price"} />
             </div>
         </main>
     )

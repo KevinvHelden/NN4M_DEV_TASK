@@ -1,16 +1,24 @@
+@import "../../styles/styling.scss";
+
 .root {
-    padding: 0 15px;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+
+  .bannerContainer {
+    background-color: $grey-background;
     width: 100%;
-    height: auto;
-    min-height: 100%;
-    z-index: 1;
-    display: flex;
-  
-    .greeting {
-      margin: 150px auto;
-      align-items: center;
-      justify-content: center;
-      display: flex;
-      flex-direction: column;
+    height: 400px;
+  }
+
+  .description {
+    padding: $padding-mobile;
+
+    > :first-child {
+      margin-bottom: 15px;
     }
   }
+}
