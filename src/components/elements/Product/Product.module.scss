@@ -1,0 +1,27 @@
+@import "../../../styles/styling.scss";
+
+a {
+  text-decoration: none;
+}
+
+.root {
+  width: calc(50vw - 22.5px);
+
+  .imageContainer {
+    background-color: $grey-background;
+    height: calc(50vw - 22.5px);
+    margin-bottom: 15px;
+  }
+
+  .description {
+    width: 100%;
+    height: auto;
+    text-align: start;
+
+    > :first-child {
+      font-family: $font-family-bold;
+      margin-bottom: 5px;
+      text-transform: capitalize;
+    }
+  }
+}
