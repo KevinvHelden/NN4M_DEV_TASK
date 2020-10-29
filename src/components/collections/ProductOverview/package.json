@@ -1,0 +1,6 @@
+{
+    "name": "ProductOverview",
+    "version": "0.0.1",
+    "main": "./ProductOverview.tsx",
+    "private": true
+}

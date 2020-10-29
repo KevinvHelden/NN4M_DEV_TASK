@@ -1,0 +1,14 @@
+@import "../../../styles/styling.scss";
+
+.root {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  > * {
+    width: calc(50vw - 22.5px);
+    margin-bottom: 25px;
+  }
+}
