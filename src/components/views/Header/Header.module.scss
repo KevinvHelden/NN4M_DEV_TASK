@@ -1,0 +1,39 @@
+@import "../../../styles/styling.scss";
+
+.root {
+  height: 50px;
+  width: 100%;
+  padding: $padding-mobile;
+  border-bottom: 1px rgba(0, 0, 0, 0.1) solid;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0px;
+  z-index: 10;
+  background-color: $white;
+
+  a {
+    align-items: center;
+    display: flex;
+    
+    .logo {
+      max-height: 15px;
+      width: auto;
+    }
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+
+    .search {
+      height: 18px;
+      margin-right: 25px;
+    }
+
+    .hamburger {
+      height: 10px;
+    }
+  }
+}
