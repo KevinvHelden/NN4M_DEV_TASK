@@ -1,0 +1,6 @@
+{
+    "name": "AllClothing",
+    "version": "0.0.1",
+    "main": "./AllClothing.tsx",
+    "private": true
+}

@@ -1,18 +1,21 @@
 import classnames from "classnames";
 import styles from "./App.module.scss";
-import { Text } from "./components/elements";
 import { Header } from "./components/views";
+import { Home, AllClothing, Search, Product } from './routes';
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 function App() {
   return (
     <div className={classnames(styles.root)}>
-      <Header />
-      <main>
-        <div className={classnames(styles.greeting)}>
-          <Text text={"Welcome to River Island"} variant={"h1"} />
-          <Text text={"Open the menu to get started."} />
-        </div>
-      </main>
+      <BrowserRouter>
+        <Header />
+        <Switch>
+          <Route exact path="/" component={() => <Home />} />
+          <Route exact path="/all-clothing" component={() => <AllClothing />} />
+          <Route exact path="/search" component={() => <Search />} />
+          <Route exact path="/product" component={() => <Product />} />
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }
