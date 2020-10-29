@@ -1,0 +1,16 @@
+@import "../../../styles/styling.scss";
+
+.root {
+  color: $font-colour-default;
+  margin: 0;
+}
+
+p {
+  font-size: $font-size-paragraph;
+  font-family: $font-family-regular;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-family-bold;
+  font-size: $font-size-header;
+}
