@@ -11,8 +11,17 @@ export default function ProductOverview(props: Props) {
   const { products } = props;
 
   const formatProducts = () => {
-    return products.map((product) => {
-      return <Product title={product.title} price={product.price} image={product.image} />
+    return products.map((product, index) => {
+      return <Product
+        key={index}
+        title={product.name}
+        price={product.cost}
+        image={{
+          source: `http://riverisland.scene7.com/is/image/RiverIsland/${product.prodid}_main`,
+          alt: product.name
+        }
+        }
+      />
     })
   }
 
