@@ -11,6 +11,12 @@ a {
     background-color: $grey-background;
     height: calc(50vw - 22.5px);
     margin-bottom: 15px;
+
+    img {
+      height: 100%;
+      max-width: 100%;
+      object-fit: cover;
+    }
   }
 
   .description {

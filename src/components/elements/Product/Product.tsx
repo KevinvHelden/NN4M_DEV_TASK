@@ -16,9 +16,14 @@ export default function Product(props: Props) {
   const { title, price, image } = props;
   const { source, alt } = image;
 
+  const addDashesToProductName = (productName: string) => {
+    const removedSpaces = productName.replace(/\s/g, "-");
+    return removedSpaces;
+  };
+
   return (
     <Fragment>
-      <a href={`/product?item=${title}`}>
+      <a href={`/product?name=${addDashesToProductName(title)}`}>
         <div className={classnames(styles.root)}>
           <div className={classnames(styles.imageContainer)}>
             <img src={source} alt={alt} />
