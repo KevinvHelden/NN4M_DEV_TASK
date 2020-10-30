@@ -1,24 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Search.module.scss";
 import classnames from "classnames";
 import { Text } from '../../components/elements';
+import { ProductOverview } from '../../components/collections';
+import { urlParam, fetch } from '../../helpers';
 
 export default function Search() {
+    const [products, setProducts] = useState([]);
 
-    const getKeyword = () => {
-        const queryString = window.location.search;
-        const urlParams = new URLSearchParams(queryString);
-        const keyword = urlParams.get('keyword');
-        return keyword;
-    }
+    useEffect(() => {
+        fetch.filteredProducts( urlParam.getSingle("keyword"), setProducts);
+    }, [])
 
     return (
         <main className={classnames(styles.root)}>
             <div className={classnames(styles.summary)}>
                 <Text text={`Search results for: `} variant={"h1"} />
-                <Text text={`"${getKeyword()}"`} variant={"h1"} />
-                <Text text={"215 products"} />
+                <Text text={`"${urlParam.getSingle("keyword")}"`} variant={"h1"} />
+                <Text text={`${products.length.toString()} products`} />
             </div>
+            <ProductOverview products={products} />
         </main>
     )
 }
