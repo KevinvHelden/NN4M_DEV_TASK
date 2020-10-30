@@ -2,6 +2,7 @@
   "name": "nn4m_dev_task",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://static-r2.ristack-3.nn4maws.net",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
