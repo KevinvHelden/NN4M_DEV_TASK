@@ -40,30 +40,36 @@
   }
 }
 
+.shade {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transition: 0.3s ease-in-out;
+  position: fixed;
+  z-index: 11;
+  transition: 0.3s ease-in-out;
+  display: none;
+  top: 0;
+}
+
 .menuContainer {
   position: fixed;
   width: 100%;
   height: 100%;
   left: 100%;
   top: 0;
-  z-index: 11;
+  z-index: 12;
   display: flex;
   flex-direction: row;
   transition: 0.3s ease-in-out;
-
-  .shade {
-    width: 20%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.2);
-    opacity: 0;
-    transition: 0.3s ease-in-out;
-  }
 
   .menuContainerContent {
     width: 80%;
     height: 100%;
     background-color: $white;
     padding: 0 $padding-mobile;
+    margin-left: auto;
 
     .header {
       height: 50px;
@@ -99,20 +105,21 @@
 }
 
 .searchContainer {
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: calc(100vh - 50px);
   background-color: $white;
   display: none;
   flex-direction: column;
   padding: 0 $padding-mobile;
+  z-index: 2;
 
   .header {
     height: 50px;
     width: 100%;
     padding: $padding-mobile 0;
     align-items: center;
-    position: sticky;
+    position: fixed;
     top: 50px;
     background-color: $white;
 
@@ -129,6 +136,7 @@
 
   .content {
     padding-top: 50px;
+    max-width: 1200px;
 
     h1 {
       margin-bottom: 25px;
@@ -140,14 +148,44 @@
   }
 }
 
+.shade.active {
+  opacity: 1;
+  display: unset;
+}
+
 .menuContainer.active {
   left: 0;
-
-  .shade {
-    opacity: 1;
-  }
 }
 
 .searchContainer.active {
   display: flex;
+}
+
+@media only screen and (min-width: 768px) {
+  .menuContainer {
+    .menuContainerContent {
+      width: 300px;
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .root {
+    padding: $padding-mobile $padding-desktop;
+  }
+
+  .menuContainer {
+    .menuContainerContent {
+      padding: 0 $padding-desktop;
+    }
+  }
+
+  .searchContainer {
+    padding: 0 $padding-desktop;
+
+    .content {
+      width: 1200px;
+      margin: 0 auto;
+    }
+  }
 }

@@ -33,6 +33,7 @@ export default function Header() {
 
   return (
     <Fragment>
+      {/* Header main body */}
       <header className={classnames(styles.root)}>
         <a href={'/'}>
           <img className={classnames(styles.logo)} src={logo} alt={"logo"} />
@@ -42,8 +43,11 @@ export default function Header() {
           <img onClick={() => openMenu(true)} className={classnames(styles.hamburger)} src={hamburger} alt={"hamburger"} />
         </div>
       </header>
+
+      <div className={classnames(styles.shade, { [styles.active]: activeMenu })} />
+
+      {/* Main menu */}
       <div className={classnames(styles.menuContainer, { [styles.active]: activeMenu })}>
-        <div className={classnames(styles.shade)} />
         <div className={classnames(styles.menuContainerContent)}>
           <div className={classnames(styles.header)}>
             <div onClick={() => openMenu(false)} className={classnames(styles.backButton)}>
@@ -57,6 +61,8 @@ export default function Header() {
           </div>
         </div>
       </div>
+
+      {/* Search menu */}
       <div className={classnames(styles.searchContainer, { [styles.active]: activeSearch })}>
         <div className={classnames(styles.header)}>
           <div onClick={() => openSearch(false)} className={classnames(styles.backButton)}>

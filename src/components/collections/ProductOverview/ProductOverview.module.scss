@@ -6,9 +6,19 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
 
   > * {
     width: calc(50vw - 22.5px);
     margin-bottom: 25px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .root {
+    > * {
+      width: calc(400px - 10px);
+    }
   }
 }

@@ -1,6 +1,7 @@
 @import "../../../styles/styling.scss";
 
 .root {
+  max-width: 500px;
   .input {
     color: $font-colour-default;
     font-size: $font-size-paragraph;
@@ -20,7 +21,7 @@
 
   .closeIcon {
     position: absolute;
-    right: 30px;
+    margin-left: -30px;
     margin-top: $padding-mobile;
     display: none;
     cursor: pointer;
