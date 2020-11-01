@@ -17,8 +17,6 @@ export default function Searchbar(props: Props) {
   const { reference } = props;
 
   useEffect(() => {
-    const { reference } = props;
-    if (reference && reference.current) reference.current.addEventListener("input", handleChangeEvents);
     if (imageEl && imageEl.current) imageEl.current.addEventListener("click", deleteInputValue);
   });
 
@@ -63,7 +61,7 @@ export default function Searchbar(props: Props) {
 
   return (
     <div className={classnames(styles.root)}>
-      <input ref={reference} value={inputValue} className={classnames(styles.input)} placeholder={"Search for clothing"} />
+      <input onChange={handleChangeEvents} ref={reference} value={inputValue} className={classnames(styles.input)} placeholder={"Search for clothing"} />
       <img ref={imageEl} className={classnames(styles.closeIcon, { [styles.active]: activeIcon })} src={close} alt={"close-icon"} />
     </div>
   );
