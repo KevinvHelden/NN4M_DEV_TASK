@@ -1,7 +1,8 @@
-import React, { Fragment, useEffect, useRef } from "react";
+import React, { Fragment } from "react";
 import styles from "./Product.module.scss";
 import classnames from "classnames";
 import { Text } from '../';
+import { useInView } from "react-intersection-observer";
 
 type Props = {
   title: string,
@@ -15,21 +16,14 @@ type Props = {
 export default function Product(props: Props) {
   const { title, price, image } = props;
   const { source, alt } = image;
-  const imageEl = useRef<HTMLImageElement>(null);
+  const { ref, inView } = useInView({
+    // Once the image has loaded, stop observing the image
+    triggerOnce: true,
+    // The product has to be above the fold for 10% for the image to load
+    threshold: .1,
+  });
 
-  // useEffect(() => {
-  //   const lazyLoadingOptions = {
-  //     root: document.getElementById('root'),
-  //     rootMargin: '0px',
-  //     threshold: 1.0
-  //   };
-  //   const target = imageEl.current;
-  //   const lazyImageObserver = new IntersectionObserver((entries, observer) => {
-  //     observer.observe(target);
-
-  //   }, lazyLoadingOptions);
-  // }, [])
-
+  // Adds dashes to the product name for Url parameters
   const addDashesToProductName = (productName: string) => {
     const removedSpaces = productName.replace(/\s/g, "-");
     return removedSpaces;
@@ -39,8 +33,15 @@ export default function Product(props: Props) {
     <Fragment>
       <a href={`/product?name=${addDashesToProductName(title)}`}>
         <div className={classnames(styles.root)}>
-          <div className={classnames(styles.imageContainer)}>
-            <img ref={imageEl} src={source} alt={alt} />
+          <div ref={ref} className={classnames(styles.imageContainer)}>
+            {
+              // If the image is in view load it otherwise return null
+              inView ? (
+                // Makes sure to show the product info before the image is loaded
+                <img src={source ? source : ''} alt={alt} />
+              ) :
+                null
+            }
           </div>
           <div className={classnames(styles.description)}>
             <Text text={title} />
