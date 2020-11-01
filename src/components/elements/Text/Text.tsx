@@ -6,12 +6,11 @@ type Props = {
   text: string,
   variant?: any,
   link?: string,
-  strong?: boolean,
   clickFunc?: () => void,
 }
 
 export default function Text(props: Props) {
-  const { text, variant = "p", strong = false, link, clickFunc } = props;
+  const { text, variant = "p", link, clickFunc } = props;
   let ComponentType = variant;
 
   return (
@@ -19,10 +18,7 @@ export default function Text(props: Props) {
       {link ? (
         <a className={classnames(styles.link)} href={link}>
           <ComponentType
-            className={classnames(
-              styles.root, styles.link,
-              { [styles.strong]: strong },
-            )}
+            className={classnames(styles.root, styles.link)}
             onClick={clickFunc}
           >
             {text}
@@ -30,10 +26,7 @@ export default function Text(props: Props) {
         </a>
       ) : (
           <ComponentType
-            className={classnames(
-              styles.root,
-              { [styles.strong]: strong },
-            )}
+            className={classnames(styles.root)}
             onClick={clickFunc}
           >
             {text}
