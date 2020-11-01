@@ -42,7 +42,8 @@ const filteredProducts = async (searchParam, setProduct) => {
     .catch((err) => console.log(err));
   // Uses filter to find all product names that include the searchParam
   const filteredList = productsList.filter((product) =>
-    product.name.includes(searchParam)
+    // Uses toLowerCase because safari on iPhone makes upper- and lower case distinctions
+    product.name.toLowerCase().includes(searchParam.toLowerCase())
   );
   // Sets the list of all products that have the searchParam value in its name in the state
   setProduct(filteredList);
