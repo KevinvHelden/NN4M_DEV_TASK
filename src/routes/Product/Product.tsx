@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styles from "./Product.module.scss";
 import classnames from "classnames";
 import { Text } from '../../components/elements';
@@ -8,8 +8,11 @@ export default function Product() {
     const [product, setProduct] = useState({
         prodid: "",
         name: "",
-        cost: ""
+        cost: "",
+        allImages: []
     });
+
+    const bigImageRef = useRef<HTMLImageElement>(null);
 
     useEffect(() => {
         fetch.product(getProductName(), setProduct);
@@ -24,10 +27,31 @@ export default function Product() {
         return productName;
     }
 
+    const formatAllImages = () => {
+        const allImages = product.allImages;
+        return allImages.map(image => {
+            return <img onMouseOver={hoverAltImage} src={image} alt={product.name} />
+        });
+    }
+
+    // Sets the big image source to the hovered image
+    const hoverAltImage = (e: any) => {
+        const bigImage = bigImageRef.current;
+        const targetImage = e.target.src;
+        if (bigImage) {
+            bigImage.src = `${targetImage}?$productImageLarge$`;
+        }
+    }
+
     return (
         <main className={classnames(styles.root)}>
-            <div className={classnames(styles.bannerContainer)}>
-                <img src={`http://riverisland.scene7.com/is/image/RiverIsland/${product.prodid}_main?$productImageLarge$`} alt={product.name} />
+            <div className={classnames(styles.imagesContainer)}>
+                <div className={classnames(styles.bannerContainer)}>
+                    <img ref={bigImageRef} src={`http://riverisland.scene7.com/is/image/RiverIsland/${product.prodid}_main?$productImageLarge$`} alt={product.name} />
+                </div>
+                <div className={classnames(styles.altImagesContainer)}>
+                    {formatAllImages()}
+                </div>
             </div>
             <div className={classnames(styles.description)}>
                 <Text text={product.name} variant={"h1"} />
