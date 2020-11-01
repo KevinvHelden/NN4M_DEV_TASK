@@ -17,6 +17,14 @@
 
 @media only screen and (min-width: 1200px) {
   .root {
+    display: grid;
+    grid-template-columns:
+      calc(calc(100% / 3) - calc(15px - calc(15px / 3))) 
+      calc(calc(100% / 3) - calc(15px - calc(15px / 3)))
+      calc(calc(100% / 3) - calc(15px - calc(15px / 3)));
+    column-gap: 15px;
+    row-gap: 15px;
+    
     > * {
       width: calc(400px - 10px);
     }
