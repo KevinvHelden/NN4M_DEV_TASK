@@ -9,6 +9,7 @@ export default function Search() {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
+        // Get the products and use the keyword url parameter as filter
         fetch.filteredProducts(urlParam.getSingle("keyword"), setProducts);
     }, [])
 

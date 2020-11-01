@@ -8,16 +8,22 @@ import search from '../../../images/icons/search.svg';
 import arrowRight from '../../../images/icons/arrow-right.svg';
 
 export default function Header() {
+  // Opens the main menu
   const [activeMenu, openMenu] = useState(false);
+  // Opens the search menu
   const [activeSearch, openSearch] = useState(false);
+  // Sets the searchbar value in state
   const [searchQuery, editQuery] = useState('');
+  // Updates the button disabled state
   const [buttonDisabled, toggleDisabledButton] = useState(false);
   const inputEl = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
+    // Checks if the search button should be disabled on update
     checkIfButtonIsDisabled();
   });
 
+  // Checks wether the search button should be disabled
   const checkIfButtonIsDisabled = () => {
     const searchbar = inputEl;
     if (searchbar && searchbar.current) {
@@ -72,7 +78,7 @@ export default function Header() {
         <div className={classnames(styles.content)}>
           <Text text={"Search River Island"} variant={"h1"} />
           <Searchbar reference={inputEl} onchangeFunc={checkIfButtonIsDisabled} />
-          <Button disabled={buttonDisabled} text={"Search"} link={"/search?keyword=" + searchQuery} />
+          <Button disabled={buttonDisabled} text={"Search"} link={`/search?keyword=${searchQuery}`} />
         </div>
       </div>
     </Fragment>

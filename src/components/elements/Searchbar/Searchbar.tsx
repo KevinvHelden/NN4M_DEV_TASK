@@ -4,7 +4,9 @@ import classnames from "classnames";
 import close from '../../../images/icons/x.svg';
 
 type Props = {
+  // A reference to the searchbar to get its value
   reference: any,
+  // Additional onChange functions from parent
   onchangeFunc?: () => void,
 }
 
@@ -12,6 +14,7 @@ export default function Searchbar(props: Props) {
   const [activeIcon, toggleIcon] = useState(false);
   const [inputValue, setInputValue] = useState('');
   const imageEl = useRef<HTMLImageElement>(null);
+  const { reference } = props;
 
   useEffect(() => {
     const { reference } = props;
@@ -57,8 +60,6 @@ export default function Searchbar(props: Props) {
     checkDeleteIcon();
     onchangeFunc && onchangeFunc();
   }
-
-  const { reference } = props;
 
   return (
     <div className={classnames(styles.root)}>

@@ -11,6 +11,7 @@ export default function ProductOverview(props: Props) {
   const { products } = props;
 
   const formatProducts = () => {
+    // Returns all products
     return products.map((product, index) => {
       return <Product
         key={index}
