@@ -22,13 +22,7 @@ export default function Product(props: Props) {
     // The product has to be above the fold for 10% for the image to load
     threshold: .1,
   });
-
-  // Adds dashes to the product name for Url parameters
-  // const addDashesToProductName = (productName: string) => {
-  //   const removedSpaces = productName.replace(/\s/g, "-");
-  //   return removedSpaces;
-  // };
-
+  
   return (
     <Fragment>
       <a href={`/product?prodid=${source}`}>
