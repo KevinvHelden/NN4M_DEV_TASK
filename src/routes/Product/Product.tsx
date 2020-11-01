@@ -27,7 +27,7 @@ export default function Product() {
     return (
         <main className={classnames(styles.root)}>
             <div className={classnames(styles.bannerContainer)}>
-                <img src={`http://riverisland.scene7.com/is/image/RiverIsland/${product.prodid}_main`} alt={product.name} />
+                <img src={`http://riverisland.scene7.com/is/image/RiverIsland/${product.prodid}_main?$productImageLarge$`} alt={product.name} />
             </div>
             <div className={classnames(styles.description)}>
                 <Text text={product.name} variant={"h1"} />
