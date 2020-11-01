@@ -8,7 +8,7 @@ import { fetch } from '../../helpers';
 export default function AllProducts() {
     const [products, setProducts] = useState([]);
 
-    useEffect(() => { 
+    useEffect(() => {
         fetch.products(setProducts);
     }, []);
 

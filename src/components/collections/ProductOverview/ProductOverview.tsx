@@ -17,7 +17,7 @@ export default function ProductOverview(props: Props) {
         title={product.name}
         price={product.cost}
         image={{
-          source: `http://riverisland.scene7.com/is/image/RiverIsland/${product.prodid}_main`,
+          source: product.prodid,
           alt: product.name
         }
         }

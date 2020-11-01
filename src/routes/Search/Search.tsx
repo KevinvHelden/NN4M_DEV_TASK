@@ -9,7 +9,7 @@ export default function Search() {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch.filteredProducts( urlParam.getSingle("keyword"), setProducts);
+        fetch.filteredProducts(urlParam.getSingle("keyword"), setProducts);
     }, [])
 
     return (

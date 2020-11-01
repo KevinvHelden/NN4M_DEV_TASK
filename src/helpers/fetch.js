@@ -12,7 +12,7 @@ const products = async (setProducts) => {
 };
 
 // Fetches the list of products and sets the product with the specified Id in the state
-const product = async (name, setProduct) => {
+const product = async (identifier, setProduct) => {
   const productsUrl = "/v1/plp/en_gb/2506/products.json";
   const productsList = await fetch(productsUrl)
     .then((res) =>
@@ -21,7 +21,7 @@ const product = async (name, setProduct) => {
       })
     )
     .catch((err) => console.log(err));
-  setProduct(productsList.find((product) => product.name === formatProductName(name)));
+  setProduct(productsList.find((product) => product.prodid === identifier));
 };
 
 // Fetches the list of products and sets the product with the specified Id in the state
@@ -38,11 +38,6 @@ const filteredProducts = async (searchParam, setProduct) => {
     product.name.includes(searchParam)
   );
   setProduct(filteredList);
-};
-
-const formatProductName = (productName) => {
-  const addSpaces = productName.replace(/-/g, ' ');
-  return addSpaces;
 };
 
 module.exports = { products, product, filteredProducts };

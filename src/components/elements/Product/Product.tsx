@@ -24,21 +24,21 @@ export default function Product(props: Props) {
   });
 
   // Adds dashes to the product name for Url parameters
-  const addDashesToProductName = (productName: string) => {
-    const removedSpaces = productName.replace(/\s/g, "-");
-    return removedSpaces;
-  };
+  // const addDashesToProductName = (productName: string) => {
+  //   const removedSpaces = productName.replace(/\s/g, "-");
+  //   return removedSpaces;
+  // };
 
   return (
     <Fragment>
-      <a href={`/product?name=${addDashesToProductName(title)}`}>
+      <a href={`/product?prodid=${source}`}>
         <div className={classnames(styles.root)}>
           <div ref={ref} className={classnames(styles.imageContainer)}>
             {
               // If the image is in view load it otherwise return null
               inView ? (
                 // Makes sure to show the product info before the image is loaded
-                <img src={source ? source : ''} alt={alt} />
+                <img src={source ? `http://riverisland.scene7.com/is/image/RiverIsland/${source}_main` : ''} alt={alt} />
               ) :
                 null
             }

@@ -5,6 +5,7 @@ import { Text } from '../../components/elements';
 import { fetch } from '../../helpers';
 
 export default function Product() {
+    const bigImageRef = useRef<HTMLImageElement>(null);
     const [product, setProduct] = useState({
         prodid: "",
         name: "",
@@ -12,19 +13,18 @@ export default function Product() {
         allImages: []
     });
 
-    const bigImageRef = useRef<HTMLImageElement>(null);
 
     useEffect(() => {
-        fetch.product(getProductName(), setProduct);
+        fetch.product(getProduct(), setProduct);
     }, []);
 
-    const getProductName = () => {
+    const getProduct = () => {
         // All of the url parameters
         const queryString = window.location.search;
         // Uses the url to search for the id parameter
-        const productName = new URLSearchParams(queryString).get('name');
+        const prodid = new URLSearchParams(queryString).get('prodid');
         // Returns the id from the url
-        return productName;
+        return prodid;
     }
 
     const formatAllImages = () => {
