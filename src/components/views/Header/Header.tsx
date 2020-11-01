@@ -6,7 +6,6 @@ import logo from '../../../images/logo.svg';
 import hamburger from '../../../images/icons/hamburger.svg';
 import search from '../../../images/icons/search.svg';
 import arrowRight from '../../../images/icons/arrow-right.svg';
-import arrowLeft from '../../../images/icons/arrow-left.svg';
 
 export default function Header() {
   const [activeMenu, openMenu] = useState(false);
@@ -66,8 +65,8 @@ export default function Header() {
       <div className={classnames(styles.searchContainer, { [styles.active]: activeSearch })}>
         <div className={classnames(styles.header)}>
           <div onClick={() => openSearch(false)} className={classnames(styles.backButton)}>
-            <img src={arrowLeft} alt={"arrow-right"} />
             <Text text={"Back"} />
+            <img src={arrowRight} alt={"arrow-right"} />
           </div>
         </div>
         <div className={classnames(styles.content)}>
